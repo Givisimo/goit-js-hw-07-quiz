@@ -78,7 +78,9 @@ function handleSubmit(event) {
   const allCorrectAnswers = { ...getAllCorrectAnswers(quiz.questions) };
 
   const final = compareAnswers(allAnswers, allCorrectAnswers);
-
+  if(document.querySelector('.result_wrapper')){
+    document.querySelector('.result_wrapper').remove()
+  }
   if (final / quiz.questions.length > 0.8) {
     const text = "You passed";
     quizForm.append(createElem(text));
